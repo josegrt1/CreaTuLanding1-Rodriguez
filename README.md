@@ -129,3 +129,6 @@ B) Commit de entrega
 git add README.md
 git commit -m "NavegaLasRutas+Rodriguez: README de entrega"
 git push
+
+## Demo de navegabilidad
+![Demo](docs/demo.gif)
