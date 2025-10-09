@@ -1,3 +1,4 @@
+// src/components/NavBar.jsx
 import { Link, NavLink } from 'react-router-dom'
 import { CATEGORIES } from '../data/products'
 import CartWidget from './CartWidget'
@@ -13,9 +14,12 @@ export default function NavBar() {
         </Link>
 
         <ul className="tabs">
-          {CATEGORIES.map(c => (
+          {CATEGORIES.map((c) => (
             <li key={c.id}>
-              <NavLink to={`/category/${c.id}`} className={({isActive}) => isActive ? 'tab active' : 'tab'}>
+              <NavLink
+                to={`/category/${c.id}`}
+                className={({ isActive }) => (isActive ? 'tab active' : 'tab')}
+              >
                 {c.label}
               </NavLink>
             </li>
