@@ -1,31 +1,31 @@
-import CartWidget from "./CartWidget";
+import { Link, NavLink } from 'react-router-dom'
+import { CATEGORIES } from '../data/products'
+import CartWidget from './CartWidget'
+import logo from '../assets/logo.svg'
 
 export default function NavBar() {
   return (
-  
     <header className="navbar">
       <nav className="nav-inner" aria-label="Principal">
-        <a className="brand" href="#home" aria-label="Inicio">
-        <img src="/logo.svg" alt="Vuelos y Más" className="brand-logo" />
-        <span className="sr-only">Vuelos y Más</span>
-        </a>
+        <Link to="/" aria-label="Inicio" className="brand">
+          <img src={logo} alt="Vuelos y Más" />
+          
+        </Link>
 
-
-        <ul className="nav-links">
-          <li>
-            <a href="#home">Inicio</a>
-          </li>
-          <li>
-            <a href="#destinos">Destinos</a>
-          </li>
-          <li>
-            <a href="#contacto">Contacto</a>
-          </li>
+        <ul className="tabs">
+          {CATEGORIES.map(c => (
+            <li key={c.id}>
+              <NavLink to={`/category/${c.id}`} className={({isActive}) => isActive ? 'tab active' : 'tab'}>
+                {c.label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
 
-        <CartWidget />
+        <div className="nav-right">
+          <CartWidget />
+        </div>
       </nav>
     </header>
-  );
+  )
 }
-
